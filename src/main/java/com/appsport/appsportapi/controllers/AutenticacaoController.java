@@ -1,8 +1,10 @@
 package com.appsport.appsportapi.controllers;
 
 import com.appsport.appsportapi.domain.user.AutenticacaoDTO;
+import com.appsport.appsportapi.domain.user.EmailResponseDTO;
 import com.appsport.appsportapi.domain.user.RegistrarDTO;
 import com.appsport.appsportapi.domain.user.Usuario;
+import com.appsport.appsportapi.infra.security.TokenService;
 import com.appsport.appsportapi.repositories.UsuarioRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +25,17 @@ public class AutenticacaoController {
     private AuthenticationManager authenticationManager;
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private TokenService tokenService;
 
     @PostMapping("/email")
     public ResponseEntity login(@RequestBody @Valid AutenticacaoDTO data) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.email(), data.senha());
         var auth = this.authenticationManager.authenticate(usernamePassword);
 
-        return ResponseEntity.ok().build();
+        var token = tokenService.generateToken((Usuario) auth.getPrincipal());
+
+        return ResponseEntity.ok(new EmailResponseDTO(token));
     }
 
     @PostMapping("/registrar")
