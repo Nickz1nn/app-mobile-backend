@@ -1,4 +1,4 @@
-package com.appsport.appsportapi.domain.user;
+package com.appsport.appsportapi.domain.usuario;
 
 public enum TipoUsuario {
     ADMIN("admin"),

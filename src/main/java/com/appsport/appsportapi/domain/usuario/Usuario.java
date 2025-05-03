@@ -1,4 +1,4 @@
-package com.appsport.appsportapi.domain.user;
+package com.appsport.appsportapi.domain.usuario;
 
 import jakarta.persistence.*;
 import lombok.*;

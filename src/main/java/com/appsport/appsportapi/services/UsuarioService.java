@@ -1,6 +1,6 @@
 package com.appsport.appsportapi.services;
 
-import com.appsport.appsportapi.domain.user.Usuario;
+import com.appsport.appsportapi.domain.usuario.Usuario;
 import com.appsport.appsportapi.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

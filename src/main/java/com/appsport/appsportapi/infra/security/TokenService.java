@@ -1,6 +1,6 @@
 package com.appsport.appsportapi.infra.security;
 
-import com.appsport.appsportapi.domain.user.Usuario;
+import com.appsport.appsportapi.domain.usuario.Usuario;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

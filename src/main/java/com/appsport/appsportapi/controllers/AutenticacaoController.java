@@ -1,9 +1,9 @@
 package com.appsport.appsportapi.controllers;
 
-import com.appsport.appsportapi.domain.user.AutenticacaoDTO;
-import com.appsport.appsportapi.domain.user.EmailResponseDTO;
-import com.appsport.appsportapi.domain.user.RegistrarDTO;
-import com.appsport.appsportapi.domain.user.Usuario;
+import com.appsport.appsportapi.domain.usuario.AutenticacaoDTO;
+import com.appsport.appsportapi.domain.usuario.EmailResponseDTO;
+import com.appsport.appsportapi.domain.usuario.RegistrarDTO;
+import com.appsport.appsportapi.domain.usuario.Usuario;
 import com.appsport.appsportapi.infra.security.TokenService;
 import com.appsport.appsportapi.repositories.UsuarioRepository;
 import jakarta.validation.Valid;
