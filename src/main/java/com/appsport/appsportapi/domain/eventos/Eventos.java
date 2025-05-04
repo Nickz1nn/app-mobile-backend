@@ -33,4 +33,15 @@ public class Eventos {
     private String url_evento;
 
     private String organizador;
+
+    public Eventos(EventoRequestDTO data) {
+        this.nome = data.nome();
+        //this.categoria = new Categoria(data.idCategoria());
+        this.data_evento = data.dataEvento();
+        this.local = data.local();
+        this.descricao = data.descricao();
+        this.url_evento = data.urlEvento();
+        this.organizador = data.organizador();
+    }
+
 }
