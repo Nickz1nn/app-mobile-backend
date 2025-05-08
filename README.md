@@ -23,7 +23,7 @@ O AppSport API é responsável por:
 - Cadastro de performance de usuários em eventos
 - Envio de notificações aos participantes
 
-### Estrutura baseada em Clean Architecture:
+### Estrutura futuramente será baseada na Clean Architecture:
 
 ```
 appsport-api/
