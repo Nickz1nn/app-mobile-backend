@@ -21,7 +21,7 @@ public class Eventos {
     private String nome;
 
     @ManyToOne
-    @JoinColumn(name = "id_categoria", referencedColumnName = "id")
+    @JoinColumn(name = "id_categoria", referencedColumnName = "id", nullable = false)
     private Categoria categoria;
 
     private Date data_evento;
@@ -34,9 +34,9 @@ public class Eventos {
 
     private String organizador;
 
-    public Eventos(EventoRequestDTO data) {
+    public Eventos(EventoRequestDTO data, Categoria categoria) {
         this.nome = data.nome();
-        //this.categoria = new Categoria(data.idCategoria());
+        this.categoria = categoria;
         this.data_evento = data.dataEvento();
         this.local = data.local();
         this.descricao = data.descricao();
