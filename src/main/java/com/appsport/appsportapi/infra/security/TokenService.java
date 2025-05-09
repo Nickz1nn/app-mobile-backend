@@ -34,16 +34,16 @@ public class TokenService {
     public String validateToken(String token) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
-            JWT.require(algorithm)
+            var verifier = JWT.require(algorithm)
                     .withIssuer("appsport-api")
-                    .build()
-                    .verify(token)
-                    .getSubject();
-            return "Token is valid";
+                    .build();
+            var decodedJWT = verifier.verify(token);
+            return decodedJWT.getSubject();
         } catch (JWTVerificationException exception) {
-            return "";
+            throw new RuntimeException("Token inválido ou expirado", exception);
         }
     }
+
 
     private Instant genExpirationDate(){
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
