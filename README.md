@@ -2,6 +2,8 @@
 
 Este é o backend da aplicação **AppSport**, um projeto desenvolvido para gerenciar eventos esportivos de forma prática e moderna! Aqui usamos **Java**, **Spring Boot** e **PostgreSQL** para construir uma API organizada, escalável e pronta para o futuro 🚀.
 
+---
+
 ## 🔧 Tecnologias Utilizadas
 
 <div align="left">
@@ -15,15 +17,17 @@ Este é o backend da aplicação **AppSport**, um projeto desenvolvido para gere
 
 ## 📚 Sobre o Projeto
 
-O AppSport API é responsável por:
+O **AppSport API** é responsável por:
 
-- Cadastro e autenticação de usuários 🧑‍💻
-- Criação, listagem e gerenciamento de eventos esportivos 🏃
-- Categorização de eventos por modalidades ⚽🏀🏈
-- Cadastro de performance de usuários em eventos
-- Envio de notificações aos participantes
+* **🧑‍💻 Cadastro e autenticação de usuários**
+* **🏃 Criação, listagem e gerenciamento de eventos esportivos**
+* **⚽🏀🏈 Categorização de eventos por modalidades**
+* **📊 Cadastro de performance de usuários em eventos**
+* **🔔 Envio de notificações aos participantes**
 
-### Estrutura futuramente será baseada na Clean Architecture:
+---
+
+### Estrutura (futuramente baseada na Clean Architecture):
 
 ```
 appsport-api/
@@ -38,9 +42,10 @@ appsport-api/
 ## 🏗️ Como Rodar o Projeto
 
 ### Pré-requisitos
-- [Java 17](https://adoptium.net/)
-- [Maven](https://maven.apache.org/)
-- [PostgreSQL](https://www.postgresql.org/)
+
+* [Java 17](https://adoptium.net/)
+* [Maven](https://maven.apache.org/)
+* [PostgreSQL](https://www.postgresql.org/)
 
 ### Passo a Passo
 
@@ -64,16 +69,25 @@ cd appsport-api
 
 ## 🗄️ Banco de Dados
 
-O banco é criado manualmente no **pgAdmin4** usando o script SQL disponível na pasta `/db`. 
+O banco é criado manualmente no **pgAdmin4** usando o script SQL disponível na pasta `/db`.
 Caso queira gerar dados automaticamente para teste, a aplicação conta com um `@PostConstruct` para inserção de dados iniciais.
 
 ---
 
+## 📝 Documentação do Projeto
+
+Para acompanhar o progresso do desenvolvimento, controle de tarefas e documentação detalhada do projeto, acesse o link do **Notion**:
+
+🔗 [**TCC DOS CRIAS - Notion**](https://www.notion.so/TCC-DOS-CRIAS-8cec6677afe44832bfcea740d20a6a44?pvs=4)
+
+---
+
 ## 🛠️ Funcionalidades futuras
-- Integração com APIs externas de eventos
-- Melhorias no sistema de notificações
-- Implementação de autenticação JWT
-- Dashboard administrativo
+
+* Integração com APIs externas de eventos
+* Melhorias no sistema de notificações
+* Implementação de autenticação JWT
+* Dashboard administrativo
 
 ---
 
@@ -85,5 +99,5 @@ Sinta-se à vontade para abrir issues, propor melhorias ou dar um ⭐ no reposit
 
 ## 👨‍💻 Autor
 
-- **Nicollas, Ian e Gustavo** — Desenvolvimento Backend
-- Projeto orientado pela professora Karla Sardin.
+* **Nicollas, Ian e Gustavo** — Desenvolvimento Backend
+* Projeto orientado pela professora Karla Sardin.
