@@ -28,6 +28,8 @@ public class ConfiguracaoSeguranca {
                         .requestMatchers(HttpMethod.POST, "/autenticacao/email").permitAll()
                         .requestMatchers(HttpMethod.POST, "/autenticacao/registrar").permitAll()
                         .requestMatchers(HttpMethod.POST,"/eventos").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/categorias").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/categorias").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
