@@ -34,4 +34,15 @@ public class EventoService {
                 .toList();
     }
 
+    public Eventos buscarPorId(Long id) {
+        return eventoRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Evento não encontrado com ID: " + id));
+    }
+
+    public void deletarEvento(Long id) {
+        if (!eventoRepository.existsById(id)) {
+            throw new IllegalArgumentException("Evento não encontrado com ID: " + id);
+        }
+        eventoRepository.deleteById(id);
+    }
 }
