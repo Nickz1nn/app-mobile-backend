@@ -12,35 +12,37 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
-@RequestMapping("eventos")
+@RestController
+@RequestMapping("/eventos")
 public class EventoController {
 
     @Autowired
-    EventoRepository eventoRepository;
+    private EventoRepository eventoRepository;
+
     @Autowired
     private EventoService eventoService;
 
     @PostMapping
-    public ResponseEntity criarEvento(@RequestBody @Valid EventoRequestDTO body){
+    public ResponseEntity<EventoResponseDTO> criarEvento(@RequestBody @Valid EventoRequestDTO body) {
         Eventos evento = eventoService.criarEvento(body);
         return ResponseEntity.ok(new EventoResponseDTO(evento));
     }
 
     @GetMapping
-
-    public ResponseEntity<List<EventoResponseDTO>> listarEventos(){
-        var eventos = eventoService.listarEventos();
+    public ResponseEntity<List<EventoResponseDTO>> listarEventos() {
+        List<EventoResponseDTO> eventos = eventoService.listarEventos();
         return ResponseEntity.ok(eventos);
     }
 
-//    public ResponseEntity getAllEventos(){
-//        List<EventoResponseDTO> eventosList = this.eventoRepository
-//                .findAll()
-//                .stream()
-//                .map(EventoResponseDTO::new)
-//                .toList();
-//
-//        return ResponseEntity.ok(eventosList);
-//    }
+    @GetMapping("/{id}")
+    public ResponseEntity<EventoResponseDTO> buscarPorId(@PathVariable Long id) {
+        Eventos evento = eventoService.buscarPorId(id);
+        return ResponseEntity.ok(new EventoResponseDTO(evento));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarEvento(@PathVariable Long id) {
+        eventoService.deletarEvento(id);
+        return ResponseEntity.noContent().build();
+    }
 }
