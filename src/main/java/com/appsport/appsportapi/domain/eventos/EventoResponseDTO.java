@@ -2,7 +2,7 @@ package com.appsport.appsportapi.domain.eventos;
 
 import java.util.Date;
 
-public record EventoResponseDTO(String id, String nome, String categoria, Date data, String local,
+public record EventoResponseDTO(Long id, String nome, String categoria, Date data, String local,
                                 String descricao, String url_evento, String organizador) {
     public EventoResponseDTO(Eventos eventos) {
         this(eventos.getId(),
