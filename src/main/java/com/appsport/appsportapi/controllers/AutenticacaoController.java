@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("autenticacao")
 public class AutenticacaoController {
@@ -21,21 +23,21 @@ public class AutenticacaoController {
     public ResponseEntity<?> login(@RequestBody @Valid AutenticacaoDTO data) {
         Usuario usuario = (Usuario) usuarioRepository.findUsuarioByEmail(data.email());
         if (usuario == null) {
-            return ResponseEntity.status(401).body("Usuário não encontrado");
+            return ResponseEntity.status(401).body(Map.of("erro", "Usuário não encontrado"));
         }
 
         boolean senhaCorreta = new BCryptPasswordEncoder().matches(data.senha(), usuario.getSenha());
         if (!senhaCorreta) {
-            return ResponseEntity.status(401).body("Senha incorreta");
+            return ResponseEntity.status(401).body(Map.of("erro", "Senha incorreta"));
         }
 
-        return ResponseEntity.ok("Login realizado com sucesso");
+        return ResponseEntity.ok(Map.of("mensagem", "Login realizado com sucesso"));
     }
 
     @PostMapping("/registrar")
     public ResponseEntity<?> registrar(@RequestBody @Valid RegistrarDTO data) {
-        if (this.usuarioRepository.findUsuarioByEmail(data.email()) != null) {
-            return ResponseEntity.badRequest().body("Email já cadastrado");
+        if (usuarioRepository.findUsuarioByEmail(data.email()) != null) {
+            return ResponseEntity.badRequest().body(Map.of("erro", "Email já cadastrado"));
         }
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.senha());
@@ -48,8 +50,8 @@ public class AutenticacaoController {
         newUsuario.setSenha(encryptedPassword);
         newUsuario.setTipoUsuario(data.tipoUsuario());
 
-        this.usuarioRepository.save(newUsuario);
+        usuarioRepository.save(newUsuario);
 
-        return ResponseEntity.ok("Usuário registrado com sucesso");
+        return ResponseEntity.ok(Map.of("mensagem", "Usuário registrado com sucesso"));
     }
 }
