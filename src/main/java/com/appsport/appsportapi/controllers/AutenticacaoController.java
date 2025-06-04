@@ -31,7 +31,7 @@ public class AutenticacaoController {
             return ResponseEntity.status(401).body(Map.of("erro", "Senha incorreta"));
         }
 
-        return ResponseEntity.ok(Map.of("mensagem", "Login realizado com sucesso"));
+        return ResponseEntity.ok(Map.of("mensagem", "Login realizado com sucesso", "usuario",usuario));
     }
 
     @PostMapping("/registrar")
